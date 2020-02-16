@@ -45,7 +45,7 @@ class App extends Component {
     this.setState({
       business: newupdatedBusiness
     });
-    history.push("/crud/index");
+    history.push("/");
   };
   handleUpdate = (e, obj, history) => {
     e.preventDefault(); //prevent reloading
@@ -64,7 +64,7 @@ class App extends Component {
       business: finalBiz
     });
 
-    history.push("/crud/index");
+    history.push("/");
   };
 
   handleDelete = (id, history) => {
@@ -73,29 +73,29 @@ class App extends Component {
     this.setState({
       business: newupdatedBusiness
     });
-    history.push("/crud/index");
+    history.push("/");
   };
   render() {
     return (
       <Router>
         <div className="container">
           <nav className="nav">
-            <Link className="nav-link" to="/crud/index">
+            <Link className="nav-link" to="/">
               Home
             </Link>
-            <Link className="nav-link active" to="/crud/create">
+            <Link className="nav-link active" to="/create">
               create
             </Link>
           </nav>
           <h2> React Crud tutorial</h2>
           <Switch>
-            <Route path="/crud/create">
+            <Route path="/create">
               <Create
                 afterSubmiting={this.handleSubmit}
                 handleChange={this.handleChange}
               />
             </Route>
-            <Route exact path="/crud/index">
+            <Route exact path="/">
               <Index
                 handleDelete={this.handleDelete}
                 businessdata={this.state.business}
